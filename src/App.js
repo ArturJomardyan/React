@@ -1,25 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+import Counter from "./components/Counter";
+import Search from "./components/Search";
+
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Routes
+} from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div >
+            <Router>
+                <div >
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/counter">Counter</Link>
+                            </li>
+                            <li>
+                                <Link to="/search">Search Bar</Link>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <Routes >
+                        <Route path="/counter" element={<Counter/>}/>
+                        <Route path="/search" element={<Search/>}/>
+                    </Routes>
+                </div>
+            </Router>
+        </div>
+    )
 }
 
 export default App;
